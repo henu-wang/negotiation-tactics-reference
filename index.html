@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Negotiation Tactics Reference - Master the Art of Negotiation</title>
+    <meta name="description" content="Complete reference guide to negotiation frameworks and tactics including BATNA, ZOPA, anchoring, logrolling, and principled negotiation strategies.">
+    <style>
+        :root {
+            --primary: #0f766e;
+            --primary-light: #14b8a6;
+            --secondary: #7c3aed;
+            --accent: #f59e0b;
+            --bg: #f0fdfa;
+            --card-bg: #ffffff;
+            --text: #134e4a;
+            --text-light: #5f7470;
+            --border: #d1e7e4;
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+        .hero {
+            background: linear-gradient(135deg, #134e4a 0%, #0f766e 40%, #14b8a6 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(to bottom right, transparent 49%, var(--bg) 50%);
+        }
+        .hero h1 { font-size: 3em; margin-bottom: 16px; font-weight: 800; }
+        .hero p { font-size: 1.2em; opacity: 0.9; max-width: 700px; margin: 0 auto 30px; }
+        .badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 6px 18px; border-radius: 50px; font-size: 0.85em; margin-bottom: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        nav {
+            background: white;
+            padding: 14px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 20px;
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;
+        }
+        .nav-brand { font-weight: 700; font-size: 1.2em; color: var(--primary); text-decoration: none; }
+        .nav-links { display: flex; gap: 20px; flex-wrap: wrap; }
+        .nav-links a { color: var(--text-light); text-decoration: none; font-size: 0.95em; }
+        .nav-links a:hover { color: var(--primary); }
+        .section { padding: 60px 0; }
+        .section-title { font-size: 2em; text-align: center; margin-bottom: 12px; }
+        .section-sub { text-align: center; color: var(--text-light); max-width: 650px; margin: 0 auto 40px; font-size: 1.1em; }
+        .divider { width: 60px; height: 4px; background: var(--primary); border-radius: 2px; margin: 0 auto 30px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        @media (max-width: 768px) {
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2em; }
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.08); }
+        .card-icon { width: 52px; height: 52px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.6em; margin-bottom: 14px; }
+        .icon-teal { background: #ccfbf1; }
+        .icon-blue { background: #dbeafe; }
+        .icon-purple { background: #ede9fe; }
+        .icon-amber { background: #fef3c7; }
+        .icon-red { background: #fee2e2; }
+        .icon-green { background: #d1fae5; }
+        .card h3 { font-size: 1.25em; margin-bottom: 10px; }
+        .card p { color: var(--text-light); margin-bottom: 10px; }
+        .highlight-box {
+            background: linear-gradient(135deg, #f0fdfa, #ccfbf1);
+            border: 1px solid #99f6e4;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 16px 0;
+        }
+        .example-box {
+            background: #f8fafc;
+            border-left: 4px solid var(--primary);
+            padding: 16px;
+            border-radius: 0 8px 8px 0;
+            margin: 14px 0;
+            font-size: 0.95em;
+        }
+        .example-box strong { color: var(--primary); display: block; margin-bottom: 4px; }
+        .warning-box {
+            background: #fffbeb;
+            border: 1px solid #fcd34d;
+            border-radius: 12px;
+            padding: 18px;
+            margin: 14px 0;
+        }
+        .warning-box strong { color: #d97706; }
+        .steps { list-style: none; counter-reset: s; }
+        .steps li { counter-increment: s; padding: 10px 0 10px 48px; position: relative; border-bottom: 1px solid var(--border); }
+        .steps li:last-child { border-bottom: none; }
+        .steps li::before {
+            content: counter(s);
+            position: absolute; left: 0; top: 10px;
+            width: 32px; height: 32px; background: var(--primary); color: white;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85em;
+        }
+        .tag { display: inline-block; padding: 4px 12px; border-radius: 50px; font-size: 0.8em; font-weight: 600; }
+        .tag-teal { background: #ccfbf1; color: #0f766e; }
+        .tag-purple { background: #ede9fe; color: #7c3aed; }
+        .tag-amber { background: #fef3c7; color: #d97706; }
+        .tag-red { background: #fee2e2; color: #dc2626; }
+        table {
+            width: 100%; border-collapse: separate; border-spacing: 0;
+            border-radius: 12px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        th { background: var(--primary); color: white; padding: 14px 16px; text-align: left; font-weight: 600; }
+        td { padding: 12px 16px; border-bottom: 1px solid var(--border); background: white; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background: #f0fdfa; }
+        .btn {
+            display: inline-block; padding: 14px 30px; border-radius: 10px;
+            text-decoration: none; font-weight: 600; font-size: 1em; transition: all 0.2s;
+        }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: #134e4a; transform: translateY(-2px); }
+        .btn-white { background: white; color: var(--primary); }
+        .btn-white:hover { background: #f0fdfa; }
+        .cta-section {
+            background: linear-gradient(135deg, #134e4a, #0f766e);
+            color: white; padding: 80px 20px; text-align: center;
+            border-radius: 24px; margin: 40px auto; max-width: 1200px;
+        }
+        .cta-section h2 { font-size: 2.2em; margin-bottom: 14px; }
+        .cta-section p { font-size: 1.1em; opacity: 0.9; max-width: 600px; margin: 0 auto 28px; }
+        .resource-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px; margin-top: 30px;
+        }
+        .resource-card {
+            background: white; border: 1px solid var(--border); border-radius: 12px;
+            padding: 22px; text-align: center; transition: all 0.2s;
+        }
+        .resource-card:hover { border-color: var(--primary); box-shadow: 0 4px 12px rgba(15,118,110,0.1); }
+        .resource-card a { color: var(--primary); text-decoration: none; font-weight: 600; }
+        .resource-card p { color: var(--text-light); font-size: 0.88em; margin-top: 6px; }
+        .vs-box {
+            display: grid; grid-template-columns: 1fr auto 1fr; gap: 20px;
+            align-items: center; margin: 20px 0;
+        }
+        .vs-side { background: white; border-radius: 12px; padding: 20px; border: 1px solid var(--border); }
+        .vs-mid { font-size: 1.5em; font-weight: 800; color: var(--primary); }
+        @media (max-width: 600px) { .vs-box { grid-template-columns: 1fr; } .vs-mid { text-align: center; } }
+        footer {
+            background: #134e4a; color: #94d2c9; padding: 60px 20px 30px;
+        }
+        .footer-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px; max-width: 1200px; margin: 0 auto 40px;
+        }
+        .footer-col h4 { color: white; margin-bottom: 14px; }
+        .footer-col a { display: block; color: #94d2c9; text-decoration: none; padding: 4px 0; }
+        .footer-col a:hover { color: white; }
+        .footer-bottom {
+            max-width: 1200px; margin: 0 auto; padding-top: 20px;
+            border-top: 1px solid #1a6b63; text-align: center; font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="https://keeprule.com" class="nav-brand">KeepRule</a>
+            <div class="nav-links">
+                <a href="https://keeprule.com/en/scenarios">Scenarios</a>
+                <a href="https://keeprule.com/en/principles">Principles</a>
+                <a href="https://keeprule.com/en/masters">Masters</a>
+                <a href="https://keeprule.com/en/blog">Blog</a>
+                <a href="https://keeprule.com/en/faq">FAQ</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="badge">Negotiation Reference Guide</div>
+        <h1>Negotiation Tactics Reference</h1>
+        <p>Master proven negotiation frameworks and tactics used by the world's most effective dealmakers. From BATNA to principled negotiation, every technique you need.</p>
+        <a href="https://keeprule.com/en/scenarios" class="btn btn-white">Practice Decision Scenarios</a>
+    </section>
+
+    <div class="container">
+        <section class="section" id="core-concepts">
+            <h2 class="section-title">Core Negotiation Concepts</h2>
+            <div class="divider"></div>
+            <p class="section-sub">These foundational concepts form the backbone of every successful negotiation strategy.</p>
+
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-icon icon-teal">&#x1F3AF;</div>
+                    <h3>BATNA</h3>
+                    <span class="tag tag-teal">Best Alternative to a Negotiated Agreement</span>
+                    <p style="margin-top:12px">Your BATNA is your power source in any negotiation. It represents what you will do if the current negotiation fails. The stronger your BATNA, the more leverage you have.</p>
+                    <div class="example-box">
+                        <strong>Example: Salary Negotiation</strong>
+                        If you have another job offer for $120K, that's your BATNA. You should never accept less than $120K from the current negotiation because you have a viable alternative.
+                    </div>
+                    <ol class="steps">
+                        <li>List all alternatives if this deal falls through</li>
+                        <li>Evaluate each alternative realistically</li>
+                        <li>Select the best alternative as your BATNA</li>
+                        <li>Improve your BATNA before negotiating</li>
+                        <li>Never reveal a weak BATNA</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon icon-blue">&#x1F4CA;</div>
+                    <h3>ZOPA</h3>
+                    <span class="tag tag-purple">Zone of Possible Agreement</span>
+                    <p style="margin-top:12px">The ZOPA is the range between each party's reservation point (walk-away price). If a ZOPA exists, a deal is possible. If it doesn't, no amount of negotiation will create agreement.</p>
+                    <div class="vs-box">
+                        <div class="vs-side">
+                            <strong>Buyer's Range</strong><br>
+                            Wants: $80K<br>
+                            Max: $100K
+                        </div>
+                        <div class="vs-mid">ZOPA</div>
+                        <div class="vs-side">
+                            <strong>Seller's Range</strong><br>
+                            Wants: $110K<br>
+                            Min: $90K
+                        </div>
+                    </div>
+                    <p><strong>ZOPA = $90K - $100K.</strong> Any deal in this range satisfies both parties' minimum requirements. Learn to identify ZOPAs in <a href="https://keeprule.com/en/scenarios" style="color:var(--primary)">real-world scenarios</a>.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon icon-amber">&#x2693;</div>
+                    <h3>Anchoring</h3>
+                    <span class="tag tag-amber">First-Mover Advantage</span>
+                    <p style="margin-top:12px">The first number put on the table disproportionately influences the final outcome. Research consistently shows that the party who anchors first tends to achieve better results, provided the anchor is within a reasonable range.</p>
+                    <div class="warning-box">
+                        <strong>When to Anchor First:</strong> When you have good information about the market value. When to let them anchor first: when you have very little information about what they might offer.
+                    </div>
+                    <div class="example-box">
+                        <strong>Anchoring in Practice</strong>
+                        Listing a house at $550K when you'd accept $500K anchors the buyer's thinking around $550K. Their counter-offer will likely be $510-530K rather than $450K. Apply decision principles from <a href="https://keeprule.com/en/principles" style="color:var(--primary)">KeepRule</a>.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="frameworks">
+            <h2 class="section-title">Negotiation Frameworks</h2>
+            <div class="divider"></div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <span class="tag tag-teal">Harvard Method</span>
+                    <h3 style="margin-top:12px">Principled Negotiation</h3>
+                    <p>Developed by Roger Fisher and William Ury at Harvard, this framework separates people from problems and focuses on interests rather than positions.</p>
+                    <div class="highlight-box">
+                        <strong>The Four Principles:</strong>
+                        <ol style="padding-left:20px;margin-top:8px">
+                            <li style="padding:6px 0"><strong>Separate people from the problem</strong> - Address relationship issues independently from substantive issues</li>
+                            <li style="padding:6px 0"><strong>Focus on interests, not positions</strong> - "Why do you want that?" reveals underlying needs</li>
+                            <li style="padding:6px 0"><strong>Generate options for mutual gain</strong> - Brainstorm before deciding</li>
+                            <li style="padding:6px 0"><strong>Use objective criteria</strong> - Market data, precedent, expert opinion</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <span class="tag tag-purple">Value Creation</span>
+                    <h3 style="margin-top:12px">Logrolling</h3>
+                    <p>Trading concessions on issues you value less for gains on issues you value more. This is the essence of creating value in negotiation - turning a fixed pie into a larger one.</p>
+                    <div class="example-box">
+                        <strong>Example: Employment Negotiation</strong>
+                        You care more about remote work flexibility (high value to you, low cost to employer). Employer cares more about start date (high value to them, low cost to you). Trade: accept their preferred start date in exchange for 3 days remote/week.
+                    </div>
+                    <table style="margin-top:16px">
+                        <tr><th>Issue</th><th>Your Priority</th><th>Their Priority</th><th>Trade?</th></tr>
+                        <tr><td>Salary</td><td>High</td><td>High</td><td>Split</td></tr>
+                        <tr><td>Start Date</td><td>Low</td><td>High</td><td>Concede</td></tr>
+                        <tr><td>Remote Work</td><td>High</td><td>Low</td><td>Gain</td></tr>
+                        <tr><td>Title</td><td>Medium</td><td>Low</td><td>Gain</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="grid-3" style="margin-top:24px">
+                <div class="card">
+                    <div class="card-icon icon-red">&#x1F6E1;</div>
+                    <h3>Defensive Tactics</h3>
+                    <p>Protect yourself from manipulative negotiation techniques:</p>
+                    <ul style="padding-left:20px;color:var(--text-light);margin:12px 0">
+                        <li style="padding:6px 0"><strong>Flinching:</strong> React visibly to their first offer to signal it's too extreme</li>
+                        <li style="padding:6px 0"><strong>Bracketing:</strong> If your target is $100K and they offer $80K, counter at $120K</li>
+                        <li style="padding:6px 0"><strong>Nibbling:</strong> Ask for small concessions after main terms are agreed</li>
+                        <li style="padding:6px 0"><strong>The Crunch:</strong> "You'll have to do better than that" without specifying how</li>
+                        <li style="padding:6px 0"><strong>Good Cop/Bad Cop:</strong> Recognize when teams play roles to pressure you</li>
+                    </ul>
+                    <p>Master these defensive tactics with structured frameworks from <a href="https://keeprule.com/en/principles" style="color:var(--primary)">KeepRule Principles</a>.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon icon-green">&#x1F91D;</div>
+                    <h3>Collaborative Tactics</h3>
+                    <p>Build relationships and create joint value:</p>
+                    <ul style="padding-left:20px;color:var(--text-light);margin:12px 0">
+                        <li style="padding:6px 0"><strong>Active Listening:</strong> Paraphrase their points to show understanding</li>
+                        <li style="padding:6px 0"><strong>Labeling Emotions:</strong> "It seems like you're concerned about..." validates feelings</li>
+                        <li style="padding:6px 0"><strong>Calibrated Questions:</strong> "How am I supposed to do that?" shifts problem-solving to them</li>
+                        <li style="padding:6px 0"><strong>Strategic Empathy:</strong> Understand their perspective without agreeing</li>
+                        <li style="padding:6px 0"><strong>Mirroring:</strong> Repeat the last 1-3 words to encourage elaboration</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon icon-purple">&#x1F9E0;</div>
+                    <h3>Psychological Principles</h3>
+                    <p>Understand the psychology behind negotiation:</p>
+                    <ul style="padding-left:20px;color:var(--text-light);margin:12px 0">
+                        <li style="padding:6px 0"><strong>Reciprocity:</strong> Give something to get something in return</li>
+                        <li style="padding:6px 0"><strong>Loss Aversion:</strong> People fear losses 2x more than they value equivalent gains</li>
+                        <li style="padding:6px 0"><strong>Scarcity:</strong> Limited availability increases perceived value</li>
+                        <li style="padding:6px 0"><strong>Social Proof:</strong> "Others have agreed to similar terms..."</li>
+                        <li style="padding:6px 0"><strong>Commitment:</strong> Small yeses lead to bigger yeses</li>
+                    </ul>
+                    <p>Explore the psychology of decisions at <a href="https://keeprule.com/en/blog" style="color:var(--primary)">KeepRule Blog</a>.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="preparation">
+            <h2 class="section-title">Negotiation Preparation Checklist</h2>
+            <div class="divider"></div>
+
+            <div class="grid-2">
+                <div>
+                    <div class="card">
+                        <h3>Before the Negotiation</h3>
+                        <ol class="steps">
+                            <li><strong>Research thoroughly</strong> - Know the market, their constraints, and alternatives</li>
+                            <li><strong>Define your BATNA</strong> - What will you do if no agreement is reached?</li>
+                            <li><strong>Set your reservation point</strong> - The worst deal you would accept</li>
+                            <li><strong>Establish your target</strong> - The ideal outcome you're aiming for</li>
+                            <li><strong>Prepare your opening</strong> - First offer that anchors the negotiation</li>
+                            <li><strong>Identify their interests</strong> - Why they want what they want</li>
+                            <li><strong>Plan your concessions</strong> - What you can give up and in what order</li>
+                            <li><strong>Prepare for objections</strong> - Anticipate and rehearse responses</li>
+                        </ol>
+                    </div>
+                </div>
+                <div>
+                    <div class="card" style="background:linear-gradient(135deg,#f0fdfa,#ccfbf1)">
+                        <h3>Negotiation Decision Framework</h3>
+                        <p>Use <a href="https://keeprule.com" style="color:var(--primary)">KeepRule's structured decision frameworks</a> to prepare for negotiations:</p>
+                        <div class="highlight-box" style="background:white">
+                            <strong>5 Questions Before Any Negotiation:</strong>
+                            <ol style="padding-left:20px;margin-top:8px;color:var(--text-light)">
+                                <li style="padding:4px 0">What are my non-negotiable requirements?</li>
+                                <li style="padding:4px 0">What am I willing to trade away?</li>
+                                <li style="padding:4px 0">What does the other side truly need?</li>
+                                <li style="padding:4px 0">Where can we create mutual value?</li>
+                                <li style="padding:4px 0">What is my walk-away point?</li>
+                            </ol>
+                        </div>
+                        <p style="margin-top:16px">Explore <a href="https://keeprule.com/en/masters" style="color:var(--primary)">expert decision-makers</a> who apply structured thinking to high-stakes negotiations.</p>
+                    </div>
+                    <div class="warning-box" style="margin-top:20px">
+                        <strong>Common Mistake:</strong> Going into a negotiation without a clear BATNA. Without knowing your alternative, you cannot assess whether any offer is good enough. Visit <a href="https://keeprule.com/en/faq" style="color:#d97706">KeepRule FAQ</a> for more guidance.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Tactics Quick Reference</h2>
+            <div class="divider"></div>
+
+            <table>
+                <tr><th>Tactic</th><th>Type</th><th>When to Use</th><th>Counter</th></tr>
+                <tr><td><strong>Anchoring</strong></td><td><span class="tag tag-teal">Offensive</span></td><td>When you have market knowledge</td><td>Re-anchor with data</td></tr>
+                <tr><td><strong>Silence</strong></td><td><span class="tag tag-teal">Offensive</span></td><td>After making an offer</td><td>Stay silent yourself</td></tr>
+                <tr><td><strong>Flinch</strong></td><td><span class="tag tag-red">Defensive</span></td><td>When receiving extreme offers</td><td>Ignore and stay factual</td></tr>
+                <tr><td><strong>Nibble</strong></td><td><span class="tag tag-teal">Offensive</span></td><td>After agreement on main terms</td><td>"That's not part of the deal"</td></tr>
+                <tr><td><strong>Deadline Pressure</strong></td><td><span class="tag tag-amber">Pressure</span></td><td>To force a decision</td><td>Test if deadline is real</td></tr>
+                <tr><td><strong>Logrolling</strong></td><td><span class="tag tag-purple">Collaborative</span></td><td>When interests differ across issues</td><td>Embrace it (win-win)</td></tr>
+                <tr><td><strong>Bracketing</strong></td><td><span class="tag tag-teal">Offensive</span></td><td>Responding to an anchor</td><td>Justify your counter</td></tr>
+                <tr><td><strong>Walking Away</strong></td><td><span class="tag tag-red">Defensive</span></td><td>When below your BATNA</td><td>Make a better offer</td></tr>
+                <tr><td><strong>Mirroring</strong></td><td><span class="tag tag-purple">Collaborative</span></td><td>To build rapport</td><td>N/A - builds trust</td></tr>
+                <tr><td><strong>Good/Bad Cop</strong></td><td><span class="tag tag-amber">Pressure</span></td><td>Team negotiations</td><td>Name the tactic</td></tr>
+            </table>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Decision Resources</h2>
+            <div class="divider"></div>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <a href="https://keeprule.com/en/scenarios">Decision Scenarios</a>
+                    <p>Practice negotiation decisions in realistic contexts</p>
+                </div>
+                <div class="resource-card">
+                    <a href="https://keeprule.com/en/principles">Decision Principles</a>
+                    <p>Structured principles for better negotiation outcomes</p>
+                </div>
+                <div class="resource-card">
+                    <a href="https://keeprule.com/en/masters">Expert Masters</a>
+                    <p>Learn from world-class negotiators and decision-makers</p>
+                </div>
+                <div class="resource-card">
+                    <a href="https://keeprule.com/en/blog">Insights Blog</a>
+                    <p>Deep dives into negotiation psychology and tactics</p>
+                </div>
+                <div class="resource-card">
+                    <a href="https://keeprule.com/en/faq">FAQ</a>
+                    <p>Answers to common questions about decision frameworks</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="cta-section">
+        <h2>Make Better Negotiation Decisions</h2>
+        <p>KeepRule helps you apply structured decision frameworks to negotiations, investments, and life's biggest choices.</p>
+        <a href="https://keeprule.com" class="btn btn-white" style="margin-right:12px">Visit KeepRule</a>
+        <a href="https://keeprule.com/en/scenarios" class="btn btn-white" style="background:transparent;border:2px solid white;color:white">Try Scenarios</a>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Negotiation Tactics Reference</h4>
+                <p style="font-size:0.9em;line-height:1.6">A comprehensive negotiation guide complementing the decision frameworks at <a href="https://keeprule.com" style="color:#5eead4">KeepRule</a>.</p>
+            </div>
+            <div class="footer-col">
+                <h4>KeepRule Resources</h4>
+                <a href="https://keeprule.com">Home</a>
+                <a href="https://keeprule.com/en/scenarios">Decision Scenarios</a>
+                <a href="https://keeprule.com/en/principles">Principles</a>
+                <a href="https://keeprule.com/en/masters">Masters</a>
+            </div>
+            <div class="footer-col">
+                <h4>Learn More</h4>
+                <a href="https://keeprule.com/en/blog">Blog</a>
+                <a href="https://keeprule.com/en/faq">FAQ</a>
+                <a href="https://keeprule.com">Get Started</a>
+            </div>
+            <div class="footer-col">
+                <h4>Key Topics</h4>
+                <a href="#core-concepts">BATNA & ZOPA</a>
+                <a href="#frameworks">Frameworks</a>
+                <a href="#preparation">Preparation</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Negotiation Tactics Reference. Decision tools by <a href="https://keeprule.com" style="color:#5eead4">KeepRule</a>.</p>
+        </div>
+    </footer>
+
+    <!-- Additional negotiation content section -->
+    <section class="section" style="padding-top:0">
+        <div class="container">
+            <h2 class="section-title">Negotiation Styles Assessment</h2>
+            <div class="divider"></div>
+            <p class="section-sub">Understanding your natural negotiation style helps you adapt strategically to different situations.</p>
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-icon icon-teal">&#x1F3C6;</div>
+                    <h3>Competitive Style</h3>
+                    <p>You prioritize your own outcomes. Effective when the relationship is less important than the result, but can damage long-term partnerships.</p>
+                    <p><strong>Best for:</strong> One-time transactions, clear win-lose scenarios, when you have strong leverage.</p>
+                    <p><strong>Risk:</strong> Burning bridges, missing creative solutions that benefit both parties.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon icon-green">&#x1F91D;</div>
+                    <h3>Collaborative Style</h3>
+                    <p>You seek outcomes that satisfy both parties. Takes more time but creates lasting agreements and stronger relationships.</p>
+                    <p><strong>Best for:</strong> Ongoing relationships, complex multi-issue negotiations, when trust matters.</p>
+                    <p><strong>Risk:</strong> Takes longer, can be exploited by competitive negotiators if you are not careful.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon icon-amber">&#x2696;</div>
+                    <h3>Compromising Style</h3>
+                    <p>You split the difference. Quick and fair-feeling, but may leave value on the table that creative problem-solving could capture.</p>
+                    <p><strong>Best for:</strong> Time pressure, moderately important issues, when parties have equal power.</p>
+                    <p><strong>Risk:</strong> Settling for mediocre outcomes when better solutions exist. Use <a href="https://keeprule.com/en/principles" style="color:var(--primary)">decision principles</a> to evaluate.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
